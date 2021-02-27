@@ -1,24 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { FormEvent, useRef } from "react";
+import "./App.css";
 
 function App() {
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const handleSearchSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(searchInputRef?.current?.value);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="camelize-wrapper">
+      <h2 className="title">camelize</h2>
+      <form className="form" noValidate onSubmit={handleSearchSubmit}>
+        <input ref={searchInputRef} className="search-input" type="text" />
+        <button type="submit" className="search-button">
+          Search
+        </button>
+      </form>
     </div>
   );
 }
