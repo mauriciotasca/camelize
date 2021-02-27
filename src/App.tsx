@@ -5,6 +5,8 @@ import React, {
   useRef,
   useState,
 } from "react";
+import ReactMarkdown from "react-markdown";
+import gfm from "remark-gfm";
 import "./App.css";
 import camelArray from "./resources/camelArray.json";
 import useOnClickOutside from "./utils/utils";
@@ -29,7 +31,9 @@ function App() {
   const [filteredItems, setFilteredItems] = useState<Array<CamelWord>>([]);
   const [word, setWord] = useState<CamelWord>(initialCamelWord);
 
-  useOnClickOutside(filterWrapperRef, () => setFilter(""));
+  useOnClickOutside(filterWrapperRef, () => {
+    setFilteredItems([]);
+  });
 
   useEffect(() => {
     setFilteredItems(camelArray);
@@ -122,7 +126,13 @@ function App() {
               <div className="camel-display">"{word?.camelCase}"</div>
             </>
 
-            <div className="explanation">Description - {word?.description}</div>
+            <div className="explanation">
+              <ReactMarkdown
+                linkTarget="_blank"
+                plugins={[gfm]}
+                children={word?.description}
+              />
+            </div>
           </div>
         ) : (
           <div className="description-empty" />
