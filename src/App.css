@@ -2,6 +2,7 @@
 
 :root {
   --light: #ffffff;
+  --light-alpha: rgba(255, 255, 255, 0.4);
   --white-humps: #fff2e0;
   --stale-beige: #fce6d5;
   --belly-beige: #ffe4c0;
@@ -20,22 +21,60 @@ body {
 }
 .camelize-wrapper {
   display: flex;
-  flex-direction: column;
   flex-basis: 100%;
-  height: 100vh;
+  height: 96vh;
   justify-content: center;
   align-items: center;
 }
 .camelize-wrapper .form {
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 .camelize-wrapper .title {
   font-size: 40px;
-  font-family: "Merienda One", Helvetica, Arial, sans-serif;
+  font-family: "Merienda One", cursive;
   color: var(--russet);
 }
+.camelize-wrapper .field-group {
+  display: inline-flex;
+}
+
+.camelize-wrapper .search-fields {
+  margin-right: 16px;
+}
+
+.camelize-wrapper .filtered-items {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--light-periwinkle);
+  position: absolute;
+  width: 288px;
+  border-bottom-right-radius: 24px;
+  border-bottom-left-radius: 24px;
+  max-height: 128px;
+  overflow: auto;
+}
+.camelize-wrapper .filtered-items:focus {
+  box-shadow: 0 0 4px 2px var(--vegetalio);
+}
+
+.camelize-wrapper .filtered-items > div {
+  padding: 14px;
+  font-family: "Quicksand", Consolas, sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+}
+.camelize-wrapper .filtered-items > div:hover {
+  background-color: var(--light-alpha);
+}
+
+.camelize-wrapper .search-input.filter-active {
+  border-bottom-right-radius: initial;
+  border-bottom-left-radius: initial;
+}
+
 .camelize-wrapper .search-input {
   border: none;
   appearance: none;
@@ -45,14 +84,13 @@ body {
   width: 256px;
   height: 32px;
   border-radius: 24px;
-  margin-right: 16px;
   outline: none;
   color: var(--russet);
   background-color: var(--belly-beige);
   transition: box-shadow ease-in-out 200ms;
 }
+
 .camelize-wrapper .search-input:focus {
-  box-shadow: 0 0 4px 2px var(--dark-humps);
 }
 
 .camelize-wrapper .search-button {
@@ -79,4 +117,32 @@ body {
 .camelize-wrapper .search-button:active {
   background-color: var(--russet);
   box-shadow: 0 0 4px 2px var(--russet);
+}
+
+.camelize-wrapper .form-wrapper {
+  max-width: 512px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.camelize-wrapper .description {
+  margin-top: 32px;
+  font-family: "Rokkitt", serif;
+}
+.camelize-wrapper .description-empty {
+  margin-top: 32px;
+  height: 150px;
+}
+
+.camelize-wrapper .description .how-to-camelize {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 8px;
+}
+.camelize-wrapper .description .camel-display {
+  font-size: 40px;
+  text-align: center;
+  color: var(--russet);
+  margin-bottom: 24px;
 }

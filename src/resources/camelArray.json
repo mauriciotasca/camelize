@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "normalized": "readonly",
+    "camelCase": "readonly",
+    "description": "###Readonly\nReadonly is a closed compound word and should *not* me camelized"
+  },
+  {
+    "id": 2,
+    "normalized": "subtitle",
+    "camelCase": "subtitle",
+    "description": "###Subtitle\nSubtitle is a closed compound word and should *not* me camelized"
+  },
+  {
+    "id": 3,
+    "normalized": "dropdown",
+    "camelCase": "dropdown",
+    "description": "###Dropdown\nDropdown is a closed compound word and should *not* me camelized"
+  },
+  {
+    "id": 4,
+    "normalized": "username",
+    "camelCase": "username",
+    "description": "###Username\nUsername is a closed compound word and should *not* me camelized"
+  }
+]
