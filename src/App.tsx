@@ -33,7 +33,7 @@ function App() {
 
   useEffect(() => {
     setFilteredItems(camelArray);
-  }, [camelArray]);
+  }, []);
 
   const handleSearchInput = (e: ChangeEvent<HTMLInputElement>) => {
     const wordToken = e.target.value;
