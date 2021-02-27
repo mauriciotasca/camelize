@@ -38,7 +38,7 @@ function App() {
   const handleSearchInput = (e: ChangeEvent<HTMLInputElement>) => {
     const wordToken = e.target.value;
     const filtered = camelArray.filter((i) =>
-      i?.normalized.includes(wordToken),
+      i?.normalized.includes(wordToken.toLowerCase()),
     );
     setFilteredItems(filtered);
     setFilter(e.target.value);
@@ -47,7 +47,9 @@ function App() {
     e.preventDefault();
     let found;
     if (filter) {
-      found = camelArray.find((i) => i?.normalized.includes(filter));
+      found = camelArray.find((i) =>
+        i?.normalized.includes(filter.toLowerCase()),
+      );
     } else {
       found = { ...initialCamelWord };
     }
@@ -84,10 +86,16 @@ function App() {
                       {filteredItems.map((i, index) => (
                         <div
                           role="button"
+                          className={`item ${
+                            filteredItems.length === 1 ? "single-item" : ""
+                          }`}
                           onClick={() => handleFilteredItemClick(i)}
                           tabIndex={2 + index}
                         >
-                          {i.camelCase}
+                          <span>{i.camelCase}</span>
+                          {filteredItems.length === 1 && (
+                            <span className="help">Press Enter ⏎</span>
+                          )}
                         </div>
                       ))}
                     </div>

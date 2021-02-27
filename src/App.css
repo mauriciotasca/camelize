@@ -3,9 +3,10 @@
 :root {
   --light: #ffffff;
   --light-alpha: rgba(255, 255, 255, 0.4);
-  --white-humps: #fff2e0;
-  --stale-beige: #fce6d5;
+  --light-select: rgba(255, 255, 255, 0.6);
   --belly-beige: #ffe4c0;
+  --stale-beige: #fce6d5;
+  --white-humps: #fff2e0;
   --thundra: #ffecc1;
   --tan-crayola: #d8a16e;
   --dark-humps: #97774d;
@@ -22,7 +23,7 @@ body {
 .camelize-wrapper {
   display: flex;
   flex-basis: 100%;
-  height: 96vh;
+  height: 98vh;
   justify-content: center;
   align-items: center;
 }
@@ -60,14 +61,25 @@ body {
   box-shadow: 0 0 4px 2px var(--vegetalio);
 }
 
-.camelize-wrapper .filtered-items > div {
+.camelize-wrapper .filtered-items .item {
   padding: 14px;
   font-family: "Quicksand", Consolas, sans-serif;
   font-size: 14px;
   cursor: pointer;
+  transition: background-color ease-in-out 200ms;
+  display: flex;
+  justify-content: space-between;
 }
-.camelize-wrapper .filtered-items > div:hover {
+
+.camelize-wrapper .filtered-items .item:hover {
   background-color: var(--light-alpha);
+}
+
+.camelize-wrapper .filtered-items .item.single-item {
+  background-color: var(--light-select);
+}
+.camelize-wrapper .filtered-items .item.single-item .help {
+  font-size: 12px;
 }
 
 .camelize-wrapper .search-input.filter-active {
