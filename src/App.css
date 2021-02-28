@@ -34,9 +34,17 @@ body {
   flex-direction: column;
 }
 .camelize-wrapper .title {
+  margin: 0;
   font-size: 40px;
   font-family: "Merienda One", cursive;
   color: var(--russet);
+}
+.camelize-wrapper .subtitle {
+  margin: 10px 0 28px;
+  font-size: 28px;
+  font-family: "Rokkitt", serif;
+  color: var(--vegetalio-light);
+  opacity: 0.6;
 }
 .camelize-wrapper .field-group {
   display: inline-flex;
@@ -56,9 +64,8 @@ body {
   border-bottom-left-radius: 24px;
   max-height: 128px;
   overflow: auto;
-}
-.camelize-wrapper .filtered-items:focus {
-  box-shadow: 0 0 4px 2px var(--vegetalio);
+  padding: 0;
+  margin: 0;
 }
 
 .camelize-wrapper .filtered-items .item {
@@ -116,6 +123,7 @@ body {
   background-color: var(--vegetalio);
   padding: 8px;
   outline: transparent;
+  font-family: "Quicksand", Consolas, sans-serif;
   transition: background-color ease-in-out 100ms;
 }
 
@@ -139,8 +147,9 @@ body {
   align-items: center;
 }
 .camelize-wrapper .description {
-  margin-top: 32px;
+  margin-top: 52px;
   font-family: "Rokkitt", serif;
+  margin-bottom: 24px;
 }
 .camelize-wrapper .description-empty {
   margin-top: 32px;
@@ -157,4 +166,8 @@ body {
   text-align: center;
   color: var(--russet);
   margin-bottom: 24px;
+}
+
+.camelize-wrapper .description .explanation {
+  font-size: 20px;
 }

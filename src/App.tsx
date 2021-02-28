@@ -8,8 +8,10 @@ import React, {
 import ReactMarkdown from "react-markdown";
 import gfm from "remark-gfm";
 import "./App.css";
-import camelArray from "./resources/camelArray.json";
+import camelArray from "./resources/camelArray";
+import camelTemplate from "./resources/camelTemplate";
 import useOnClickOutside from "./utils/utils";
+const camelCase = require("lodash.camelcase");
 
 interface CamelWord {
   id: number;
@@ -36,7 +38,7 @@ function App() {
   });
 
   useEffect(() => {
-    setFilteredItems(camelArray);
+    setFilteredItems({ ...camelArray });
   }, []);
 
   const handleSearchInput = (e: ChangeEvent<HTMLInputElement>) => {
@@ -52,8 +54,21 @@ function App() {
     let found;
     if (filter) {
       found = camelArray.find((i) =>
-        i?.normalized.includes(filter.toLowerCase()),
+        i?.normalized.includes(camelCase(filter).toLowerCase()),
       );
+      const unavailableWord = { ...camelTemplate };
+      const isTruthy = found && found?.id !== 0;
+      const descriptionTemplate = unavailableWord?.description?.replaceAll(
+        "{{WORD}}",
+        filter,
+      );
+      const unavailableMerged = {
+        ...unavailableWord,
+        camelCase: filter,
+        description: descriptionTemplate,
+      };
+
+      found = isTruthy ? found : unavailableMerged;
     } else {
       found = { ...initialCamelWord };
     }
@@ -70,12 +85,14 @@ function App() {
     <div className="camelize-wrapper">
       <div className="form-wrapper">
         <h2 className="title">camelize</h2>
+        <h4 className="subtitle">figure out how to camelize your words</h4>
 
         <form className="form" noValidate onSubmit={handleSearchSubmit}>
           <div className="field-group">
             <div ref={filterWrapperRef} className="search-fields">
               <input
                 tabIndex={1}
+                placeholder="type word to camelize..."
                 type="text"
                 value={filter}
                 onChange={handleSearchInput}
@@ -86,38 +103,34 @@ function App() {
               {filter?.length > 0 && (
                 <>
                   {filteredItems?.length > 0 && (
-                    <div className="filtered-items">
+                    <ul tabIndex={2} className="filtered-items">
                       {filteredItems.map((i, index) => (
-                        <div
+                        <li
                           role="button"
                           className={`item ${
                             filteredItems.length === 1 ? "single-item" : ""
                           }`}
                           onClick={() => handleFilteredItemClick(i)}
-                          tabIndex={2 + index}
+                          tabIndex={-1}
                         >
                           <span>{i.camelCase}</span>
                           {filteredItems.length === 1 && (
                             <span className="help">Press Enter ⏎</span>
                           )}
-                        </div>
+                        </li>
                       ))}
-                    </div>
+                    </ul>
                   )}
                 </>
               )}
             </div>
 
-            <button
-              tabIndex={filteredItems?.length + 2}
-              type="submit"
-              className="search-button"
-            >
+            <button tabIndex={3} type="submit" className="search-button">
               Search
             </button>
           </div>
         </form>
-        {word && word?.id !== 0 ? (
+        {word && word?.id !== 0 && word?.id !== -1 && (
           <div className="description">
             <>
               <div className="how-to-camelize">
@@ -134,9 +147,30 @@ function App() {
               />
             </div>
           </div>
-        ) : (
-          <div className="description-empty" />
         )}
+
+        {word && word?.id === -1 && (
+          <div className="description">
+            <>
+              <div className="how-to-camelize">
+                This is how you should 🐫 the word:
+              </div>
+              <div className="camel-display">
+                "{camelCase(word?.camelCase)}"
+              </div>
+            </>
+
+            <div className="explanation">
+              <ReactMarkdown
+                linkTarget="_blank"
+                plugins={[gfm]}
+                children={word?.description}
+              />
+            </div>
+          </div>
+        )}
+
+        {!word || (word?.id === 0 && <div className="description-empty" />)}
       </div>
     </div>
   );
