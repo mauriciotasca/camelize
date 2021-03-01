@@ -5,6 +5,7 @@ const dropdown = raw("./descriptions/dropdown.md");
 const subtitle = raw("./descriptions/subtitle.md");
 const username = raw("./descriptions/username.md");
 const kickoff = raw("./descriptions/kickoff.md");
+const userid = raw("./descriptions/userid.md");
 
 const descriptions = {
   template,
@@ -13,5 +14,6 @@ const descriptions = {
   subtitle,
   username,
   kickoff,
+  userid,
 };
 export default descriptions;

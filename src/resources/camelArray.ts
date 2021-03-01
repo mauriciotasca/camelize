@@ -31,6 +31,12 @@ const words = [
     camelCase: "kickoff",
     description: descriptions.kickoff,
   },
+  {
+    id: 6,
+    normalized: "userid",
+    camelCase: "userId",
+    description: descriptions.userid,
+  },
 ];
 
 export default words;

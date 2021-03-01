@@ -5,6 +5,7 @@ import React, {
   useRef,
   useState,
 } from "react";
+import ReactGA from "react-ga";
 import ReactMarkdown from "react-markdown";
 import gfm from "remark-gfm";
 import "./Camelize.scss";
@@ -30,6 +31,7 @@ function Camelize() {
   const filterWrapperRef = useRef<any>();
   const filterListRef = useRef<any>();
   const textInputRef = useRef<any>(null);
+  const trackingId = "G-D895Y8CR9P";
 
   const [textInputWidth, setTextInputWidth] = useState<any>();
   const [filter, setFilter] = useState<string>("");
@@ -41,6 +43,13 @@ function Camelize() {
   });
 
   useEffect(() => {
+    ReactGA.initialize(trackingId);
+    ReactGA.set({
+      userAgentInfo: btoa(navigator?.userAgent),
+    });
+  }, []);
+
+  useEffect(() => {
     setFilteredItems({ ...camelArray });
   }, []);
 
@@ -50,20 +59,49 @@ function Camelize() {
     );
   }, [textInputRef?.current?.offsetWidth]);
 
+  const handleSearchButtonClick = () => {
+    ReactGA.event({
+      category: "searchButtonClick",
+      action: "User clicked the search button",
+    });
+  };
+
   const handleSearchInput = (e: ChangeEvent<HTMLInputElement>) => {
     const wordToken = e.target.value;
     const filtered = camelArray.filter((i) =>
-      i?.normalized.includes(wordToken.toLowerCase()),
+      i?.normalized.includes(
+        wordToken
+          .toLowerCase()
+          .split(" ")
+          .join("")
+          .split("-")
+          .join("")
+          .split("_")
+          .join(""),
+      ),
     );
     setFilteredItems(filtered);
     setFilter(e.target.value);
   };
   const handleSearchSubmit = (e: FormEvent<HTMLFormElement>) => {
+    ReactGA.event({
+      category: "searchSubmit",
+      action: `User submitted the form with the "${filter}" word`,
+    });
     e.preventDefault();
     let found;
     if (filter) {
       found = camelArray.find((i) =>
-        i?.normalized.includes(camelCase(filter).toLowerCase()),
+        i?.normalized.includes(
+          camelCase(filter)
+            .toLowerCase()
+            .split(" ")
+            .join("")
+            .split("-")
+            .join("")
+            .split("_")
+            .join(""),
+        ),
       );
       const unavailableWord = { ...camelTemplate };
       const isTruthy = found && found?.id !== 0;
@@ -87,6 +125,10 @@ function Camelize() {
     setFilter("");
   };
   const handleFilteredItemClick = (selectedWord: CamelWord) => {
+    ReactGA.event({
+      category: "filteredItemClick",
+      action: `User clicked the filtered item with the "${selectedWord}" word the search button`,
+    });
     setWord(selectedWord);
     setFilteredItems([...camelArray]);
     setFilter("");
@@ -175,7 +217,11 @@ function Camelize() {
               )}
 
               <div className="input-group-append ml-3">
-                <button type="submit" className="btn btn-primary">
+                <button
+                  onClick={handleSearchButtonClick}
+                  type="submit"
+                  className="btn btn-primary"
+                >
                   Search
                 </button>
               </div>
@@ -195,7 +241,7 @@ function Camelize() {
               </h2>
             </>
 
-            <div className="explanation mt-3">
+            <div className="explanation mt-4">
               <ReactMarkdown
                 linkTarget="_blank"
                 plugins={[gfm]}
@@ -216,7 +262,7 @@ function Camelize() {
               </h2>
             </>
 
-            <div className="explanation mt-3">
+            <div className="explanation mt-4">
               <ReactMarkdown
                 linkTarget="_blank"
                 plugins={[gfm]}
