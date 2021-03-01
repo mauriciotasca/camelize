@@ -1,0 +1,74 @@
+//Custom
+$light: #ffffff;
+$light-alpha: rgba(255, 255, 255, 0.4);
+$light-select: rgba(255, 255, 255, 0.6);
+$belly-beige: #ffe4c0;
+$stale-beige: #fce6d5;
+$white-humps: #fff2e0;
+$thundra: #ffecc1;
+$tan-crayola: #d8a16e;
+$dark-humps: #97774d;
+$vegetalio: #6a5a36;
+$vegetalio-light: #695b49;
+$russet: #7b4f2a;
+$smoky-black: #110d0d;
+$light-periwinkle: #c3c8df;
+$queen-blue: #3d6786;
+
+// Sizes
+$content-wrapper-xs-size: 85%;
+$content-wrapper-sm-size: 560px;
+$content-wrapper-md-size: 600px;
+$content-wrapper-lg-size: 600px;
+$content-wrapper-xl-size: 600px;
+
+//Overrides
+$body-bg: $white-humps;
+
+$theme-colors: ();
+$theme-colors: map-merge(
+  (
+    "primary": $vegetalio,
+    "secondary": $russet,
+    "belly": $belly-beige,
+    "stale": $stale-beige,
+    "success": $dark-humps,
+    "info": $light-periwinkle,
+    "warning": $thundra,
+    "danger": $queen-blue,
+    "light": $light,
+    "light-select": $light-select,
+    "dark": $smoky-black,
+  ),
+  $theme-colors
+);
+
+$spacer: 1rem !default;
+$spacers: () !default;
+$spacers: map-merge(
+  (
+          0: 0,
+          1: ($spacer * .25),
+          2: ($spacer * .5),
+          3: $spacer,
+          4: ($spacer * 1.5),
+          5: ($spacer * 3),
+          6: ($spacer * 6),
+          7: ($spacer * 12)
+
+  ),
+  $spacers
+);
+
+$input-placeholder-color: transparentize($russet, 0.5%);
+$input-bg: $belly-beige;
+
+$input-color: $russet;
+$input-border-color: transparent;
+$input-border-radius: 24px;
+$input-focus-bg: darken($belly-beige, 5%);
+
+$btn-border-radius: 24px;
+
+$font-family-base: "Rokkitt", serif;
+$font-size-base: 1.25rem;

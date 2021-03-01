@@ -1,0 +1,32 @@
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+.input-group {
+  &:not(.has-validation) {
+    > .form-control:not(:last-child) {
+      border: none;
+      @include border-right-radius(24px);
+      &.filter-active{
+        @include border-bottom-radius(0);
+      }
+      &:focus{
+        box-shadow: none;
+      }
+    }
+  }
+
+  &.has-validation {
+    > .form-control:nth-last-child(n + 3) {
+      @include border-right-radius(24px);
+      &.filter-active{
+        @include border-bottom-radius(0);
+      }
+    }
+  }
+}
+
+.input-group > .input-group-append > .btn {
+  padding: 0 map_get($spacers, 4);
+  @include border-left-radius(24px);
+  @include border-right-radius(24px);
+}

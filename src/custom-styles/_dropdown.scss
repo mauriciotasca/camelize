@@ -1,0 +1,25 @@
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "./variables";
+
+.dropdown-menu {
+  width: map_get($sizes, 75);
+  background-color: map_get($theme-colors, "info");
+  @include border-bottom-radius(24px);
+  padding: 0;
+  border: none;
+}
+
+.dropdown-item {
+  font-family: "Quicksand", Consolas, sans-serif;
+  font-size: 14px;
+  background-color: map_get($theme-colors, "info");
+  outline: none;
+  transition: background-color ease-in-out 200ms;
+  &.single-item {
+    background-color: map_get($theme-colors, "light-select");
+  }
+  &:last-child {
+    @include border-bottom-radius(24px);
+  }
+}

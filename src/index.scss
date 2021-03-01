@@ -1,0 +1,23 @@
+// Override Boootstrap
+@import "custom-styles/variables";
+
+//Bootstrap Imports with !default
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/input-group";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/transitions";
+@import "~bootstrap/scss/dropdown";
+@import "~bootstrap/scss/close";
+@import "~bootstrap/scss/utilities";
+
+//Customizations
+@import "custom-styles/input_group";
+@import "custom-styles/buttons";
+@import "custom-styles/dropdown";

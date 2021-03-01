@@ -1,0 +1,15 @@
+@import "~bootstrap/scss/variables";
+@import "./variables";
+
+.btn {
+  &-primary {
+    font-family: "Quicksand", Consolas, sans-serif;
+    color: map_get($theme-colors, "stale");
+    &:hover {
+      color: lighten(map_get($theme-colors, "stale"), 5%);
+    }
+    &:active {
+      color: lighten(map_get($theme-colors, "stale"), 5%);
+    }
+  }
+}
