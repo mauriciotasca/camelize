@@ -6,6 +6,10 @@ const subtitle = raw("./descriptions/subtitle.md");
 const username = raw("./descriptions/username.md");
 const kickoff = raw("./descriptions/kickoff.md");
 const userid = raw("./descriptions/userid.md");
+const html = raw("./descriptions/html.md");
+const innerhtml = raw("./descriptions/innerhtml.md");
+const json = raw("./descriptions/json.md");
+const url = raw("./descriptions/url.md");
 
 const descriptions = {
   template,
@@ -15,5 +19,9 @@ const descriptions = {
   username,
   kickoff,
   userid,
+  html,
+  innerhtml,
+  json,
+  url,
 };
 export default descriptions;
