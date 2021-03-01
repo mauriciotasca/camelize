@@ -221,7 +221,7 @@ function Camelize() {
                 </>
               )}
 
-              <div className="input-group-append ml-3">
+              <div className="input-group-append ml-3 d-none d-sm-flex">
                 <button
                   onClick={handleSearchButtonClick}
                   type="submit"
@@ -231,14 +231,24 @@ function Camelize() {
                 </button>
               </div>
             </div>
+
+            <div className="d-xs-flex d-sm-none mt-3">
+              <button
+                onClick={handleSearchButtonClick}
+                type="submit"
+                className="btn btn-block btn-primary"
+              >
+                Search
+              </button>
+            </div>
           </form>
         </div>
       </div>
-      <div className="description-wrapper mt-5 d-flex justify-content-center">
+      <div className="description-wrapper d-flex justify-content-center">
         {word && word?.id !== 0 && word?.id !== -1 && (
           <div className="description">
             <>
-              <h3 className="how-to-camelize text-center mt-4 mb-3">
+              <h3 className="how-to-camelize text-center mb-3">
                 This is how you should 🐫 the word:
               </h3>
               <h2 className="camel-display text-secondary text-center">

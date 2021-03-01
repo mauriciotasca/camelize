@@ -4,6 +4,13 @@
 @import "custom-styles/variables";
 
 .camelize-wrapper {
+  @include media-breakpoint-only(xs) {
+    padding: map_get($spacers, 4);
+  }
+  @include media-breakpoint-only(sm) {
+    padding: map_get($spacers, 5);
+  }
+
   .form-wrapper {
     max-width: $content-wrapper-xs-size;
 
@@ -27,18 +34,23 @@
     max-width: $content-wrapper-xs-size;
 
     @include media-breakpoint-only(xs) {
+      margin-top: map_get($spacers, 3);
       max-width: $content-wrapper-xs-size;
     }
     @include media-breakpoint-only(sm) {
+      margin-top: map_get($spacers, 4);
       max-width: $content-wrapper-sm-size;
     }
     @include media-breakpoint-only(md) {
+      margin-top: map_get($spacers, 4);
       max-width: $content-wrapper-md-size;
     }
     @include media-breakpoint-only(lg) {
+      margin-top: map_get($spacers, 4);
       max-width: $content-wrapper-lg-size;
     }
     @include media-breakpoint-only(xl) {
+      margin-top: map_get($spacers, 4);
       max-width: $content-wrapper-xl-size;
     }
   }
@@ -53,7 +65,7 @@
     color: $vegetalio-light;
     opacity: 0.6;
   }
-  .help-text{
+  .help-text {
     font-size: 14px;
     font-family: "Rokkitt", serif;
     color: $vegetalio-light;
@@ -65,172 +77,21 @@
     border-radius: 24px;
     transition: box-shadow ease-in-out 200ms;
   }
+
+  .how-to-camelize {
+    @include media-breakpoint-only(xs) {
+      font-size: $font-size-base * 1;
+    }
+    @include media-breakpoint-only(sm) {
+      font-size: $font-size-base * 1.5;
+    }
+  }
+  .camel-display {
+    @include media-breakpoint-only(xs) {
+      font-size: $font-size-base * 1.75;
+    }
+    @include media-breakpoint-only(sm) {
+      font-size: $font-size-base * 1.5;
+    }
+  }
 }
-
-//:root {
-//  --light: #ffffff;
-//  --light-alpha: rgba(255, 255, 255, 0.4);
-//  --light-select: rgba(255, 255, 255, 0.6);
-//  --belly-beige: #ffe4c0;
-//  --stale-beige: #fce6d5;
-//  --white-humps: #fff2e0;
-//  --thundra: #ffecc1;
-//  --tan-crayola: #d8a16e;
-//  --dark-humps: #97774d;
-//  --vegetalio: #6a5a36;
-//  --vegetalio-light: #695b49;
-//  --russet: #7b4f2a;
-//  --smoky-black: #110d0d;
-//  --light-periwinkle: #c3c8df;
-//  --queen-blue: #3d6786;
-//}
-
-//.camelize-wrapper {
-//  display: flex;
-//  flex-basis: 100%;
-//  height: 98vh;
-//  justify-content: center;
-//  align-items: center;
-//  padding: 32px;
-//}
-//.camelize-wrapper .form {
-//  display: flex;
-//  justify-content: center;
-//  align-items: center;
-//  flex-direction: column;
-//}
-//.camelize-wrapper .title {
-//  margin: 0;
-//  font-size: 40px;
-//  font-family: "Merienda One", cursive;
-//  color: var(--russet);
-//}
-//.camelize-wrapper .subtitle {
-//  margin: 10px 0 28px;
-//  font-size: 28px;
-//  font-family: "Rokkitt", serif;
-//  color: var(--vegetalio-light);
-//  opacity: 0.6;
-//}
-//.camelize-wrapper .field-group {
-//  display: inline-flex;
-//}
-//
-//.camelize-wrapper .search-fields {
-//  margin-right: 16px;
-//}
-//
-//.camelize-wrapper .filtered-items {
-//  display: flex;
-//  flex-direction: column;
-//  background-color: var(--light-periwinkle);
-//  position: absolute;
-//  width: 288px;
-//  border-bottom-right-radius: 24px;
-//  border-bottom-left-radius: 24px;
-//  max-height: 128px;
-//  overflow: auto;
-//  padding: 0;
-//  margin: 0;
-//}
-//
-//.camelize-wrapper .filtered-items .item {
-//  padding: 14px;
-//  font-family: "Quicksand", Consolas, sans-serif;
-//  font-size: 14px;
-//  cursor: pointer;
-//  transition: background-color ease-in-out 200ms;
-//  display: flex;
-//  justify-content: space-between;
-//}
-//
-//.camelize-wrapper .filtered-items .item:hover {
-//  background-color: var(--light-alpha);
-//}
-//
-//.camelize-wrapper .filtered-items .item.single-item {
-//  background-color: var(--light-select);
-//}
-//.camelize-wrapper .filtered-items .item.single-item .help {
-//  font-size: 12px;
-//}
-//
-//.camelize-wrapper .search-input.filter-active {
-//  border-bottom-right-radius: initial;
-//  border-bottom-left-radius: initial;
-//}
-//
-//.camelize-wrapper .search-input {
-//  border: none;
-//  appearance: none;
-//  font-size: 24px;
-//  font-family: "Quicksand", Consolas, sans-serif;
-//  padding: 8px 16px;
-//  width: 172px;
-//  height: 32px;
-//  border-radius: 24px;
-//  outline: none;
-//  color: var(--russet);
-//  background-color: var(--belly-beige);
-//  transition: box-shadow ease-in-out 200ms;
-//}
-//
-//.camelize-wrapper .search-button {
-//  border: none;
-//  appearance: none;
-//  height: 48px;
-//  width: 96px;
-//  border-radius: 24px;
-//  font-size: 16px;
-//  color: var(--stale-beige);
-//  background-color: var(--vegetalio);
-//  padding: 8px;
-//  outline: transparent;
-//  font-family: "Quicksand", Consolas, sans-serif;
-//  transition: background-color ease-in-out 100ms;
-//}
-//
-//.camelize-wrapper .search-button:focus {
-//  background-color: var(--vegetalio-light);
-//  box-shadow: 0 0 4px 2px var(--vegetalio);
-//}
-//.camelize-wrapper .search-button:hover {
-//  background-color: var(--vegetalio-light);
-//}
-//.camelize-wrapper .search-button:active {
-//  background-color: var(--russet);
-//  box-shadow: 0 0 4px 2px var(--russet);
-//}
-//
-//.camelize-wrapper .form-wrapper {
-//  display: flex;
-//  flex-direction: column;
-//  justify-content: center;
-//  align-items: center;
-//  width: 100%;
-//}
-//.camelize-wrapper .description {
-//  margin-top: 52px;
-//  font-family: "Rokkitt", serif;
-//  margin-bottom: 24px;
-//}
-//.camelize-wrapper .description-empty {
-//  margin-top: 32px;
-//  height: 150px;
-//}
-//
-//.camelize-wrapper .description .how-to-camelize {
-//  font-size: 32px;
-//  text-align: center;
-//  margin-bottom: 8px;
-//}
-//.camelize-wrapper .description .camel-display {
-//  font-size: 40px;
-//  text-align: center;
-//  color: var(--russet);
-//  margin-bottom: 24px;
-//}
-//
-//.camelize-wrapper .description .explanation {
-//  font-size: 20px;
-//}
