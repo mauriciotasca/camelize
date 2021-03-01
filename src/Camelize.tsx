@@ -43,11 +43,13 @@ function Camelize() {
   });
 
   useEffect(() => {
-    ReactGA.initialize(trackingId);
-    ReactGA.set({
-      userAgentInfo: btoa(navigator?.userAgent),
-    });
-  }, []);
+    if (trackingId) {
+      ReactGA.initialize(trackingId);
+      ReactGA.set({
+        userAgentInfo: btoa(navigator?.userAgent),
+      });
+    }
+  }, [trackingId]);
 
   useEffect(() => {
     setFilteredItems({ ...camelArray });
