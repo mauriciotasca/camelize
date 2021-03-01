@@ -129,7 +129,7 @@ function Camelize() {
   const handleFilteredItemClick = (selectedWord: CamelWord) => {
     ReactGA.event({
       category: "filteredItemClick",
-      action: `User clicked the filtered item with the "${selectedWord}" word the search button`,
+      action: `User clicked the filtered item with the "${selectedWord?.camelCase}" word the search button`,
     });
     setWord(selectedWord);
     setFilteredItems([...camelArray]);
