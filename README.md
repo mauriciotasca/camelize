@@ -2,6 +2,10 @@
 Informs you of how to camelize words according to the most appropriate set of rules
 approved by the community
 
+Check **camelize** live, in order to use it
+
+LIVE SITE: [https://camelize.netlify.app](https://camelize.netlify.app)
+
 ## Features
 
 - Shows how the word should be camelized following the community guidelines
