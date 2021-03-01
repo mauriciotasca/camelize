@@ -31,7 +31,7 @@ function Camelize() {
   const filterWrapperRef = useRef<any>();
   const filterListRef = useRef<any>();
   const textInputRef = useRef<any>(null);
-  const trackingId = "G-D895Y8CR9P";
+  const trackingId = process?.env?.GA_TRACKING_ID || "";
 
   const [textInputWidth, setTextInputWidth] = useState<any>();
   const [filter, setFilter] = useState<string>("");
@@ -138,9 +138,12 @@ function Camelize() {
       <div className="form-wrapper mt-7">
         <div className="">
           <h2 className="title text-center">camelize</h2>
-          <h4 className="subtitle text-center">
+          <h4 className="subtitle text-center mb-0">
             figure out how to camelize your words
           </h4>
+          <h5 className="help-text text-center">
+            TIP: Separate your words with either dashes spaces or underscores
+          </h5>
 
           <form noValidate onSubmit={handleSearchSubmit}>
             <div className="dropdown input-group" ref={filterWrapperRef}>
@@ -233,7 +236,7 @@ function Camelize() {
         {word && word?.id !== 0 && word?.id !== -1 && (
           <div className="description">
             <>
-              <h3 className="how-to-camelize text-center mt-5 mb-3">
+              <h3 className="how-to-camelize text-center mt-4 mb-3">
                 This is how you should 🐫 the word:
               </h3>
               <h2 className="camel-display text-secondary text-center">
@@ -254,7 +257,7 @@ function Camelize() {
         {word && word?.id === -1 && (
           <div className="description">
             <>
-              <h3 className="how-to-camelize text-center mt-5 mb-3">
+              <h3 className="how-to-camelize text-center mt-4 mb-3">
                 This is how you should 🐫 the word:
               </h3>
               <h2 className="camel-display text-secondary text-center">
