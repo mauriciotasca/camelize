@@ -31,7 +31,7 @@ function Camelize() {
   const filterWrapperRef = useRef<any>();
   const filterListRef = useRef<any>();
   const textInputRef = useRef<any>(null);
-  const trackingId = process?.env?.GA_TRACKING_ID || "";
+  const trackingId = process?.env?.REACT_APP_GA_TRACKING_ID || "";
 
   const [textInputWidth, setTextInputWidth] = useState<any>();
   const [filter, setFilter] = useState<string>("");
