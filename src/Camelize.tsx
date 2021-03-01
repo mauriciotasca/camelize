@@ -144,7 +144,7 @@ function Camelize() {
             figure out how to camelize your words
           </h4>
           <h5 className="help-text text-center">
-            TIP: Separate your words with either dashes spaces or underscores
+            TIP: Separate your words with either dashes,spaces or underscores
           </h5>
 
           <form noValidate onSubmit={handleSearchSubmit}>
@@ -260,7 +260,7 @@ function Camelize() {
               <ReactMarkdown
                 linkTarget="_blank"
                 plugins={[gfm]}
-                children={word?.description}
+                children={`----\n\n${word?.description}`}
               />
             </div>
           </div>
@@ -281,7 +281,7 @@ function Camelize() {
               <ReactMarkdown
                 linkTarget="_blank"
                 plugins={[gfm]}
-                children={word?.description}
+                children={`----\n\n${word?.description}`}
               />
             </div>
           </div>
