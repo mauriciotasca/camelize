@@ -61,6 +61,42 @@ const words = [
     camelCase: "URL",
     description: descriptions.url,
   },
+  {
+    id: 11,
+    normalized: "rmid",
+    camelCase: "RMID",
+    description: descriptions.rmid,
+  },
+  {
+    id: 12,
+    normalized: "rmprops",
+    camelCase: "rmProps",
+    description: descriptions.rmprops,
+  },
+  {
+    id: 13,
+    normalized: "phd",
+    camelCase: "phd",
+    description: descriptions.phd,
+  },
+  {
+    id: 14,
+    normalized: "seo",
+    camelCase: "SEO",
+    description: descriptions.seo,
+  },
+  {
+    id: 15,
+    normalized: "seo",
+    camelCase: "SEOData",
+    description: descriptions.seodata,
+  },
+  {
+    id: 16,
+    normalized: "xmlhttprequest",
+    camelCase: "XMLHttpRequest",
+    description: descriptions.xmlhttprequest,
+  },
 ];
 
 export default words;
