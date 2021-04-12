@@ -16,6 +16,7 @@ const phd = raw("./descriptions/phd.md");
 const seo = raw("./descriptions/seo.md");
 const seodata = raw("./descriptions/seodata.md");
 const xmlhttprequest = raw("./descriptions/xmlhttprequest.md");
+const checkbox = raw("./descriptions/checkbox.md");
 
 const descriptions = {
   template,
@@ -35,5 +36,6 @@ const descriptions = {
   seo,
   seodata,
   xmlhttprequest,
+  checkbox,
 };
 export default descriptions;

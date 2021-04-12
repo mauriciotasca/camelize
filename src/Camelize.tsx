@@ -5,6 +5,7 @@ import React, {
   useRef,
   useState,
 } from "react";
+import cx from "classnames";
 import ReactGA from "react-ga";
 import ReactMarkdown from "react-markdown";
 import gfm from "remark-gfm";
@@ -67,7 +68,6 @@ function Camelize() {
       action: "User clicked the search button",
     });
   };
-
   const handleSearchInput = (e: ChangeEvent<HTMLInputElement>) => {
     const wordToken = e.target.value;
     const filtered = camelArray.filter((i) =>
@@ -135,8 +135,16 @@ function Camelize() {
     setFilteredItems([...camelArray]);
     setFilter("");
   };
+  const camelizeWrapperClassList = cx([
+    "align-items-center",
+    "camelize-wrapper",
+    "d-flex",
+    "flex-column",
+    "justify-content-center",
+  ]);
+
   return (
-    <div className="camelize-wrapper d-flex align-items-center justify-content-center flex-column">
+    <div className={camelizeWrapperClassList}>
       <div className="form-wrapper mt-7">
         <div className="">
           <h2 className="title text-center">camelize</h2>

@@ -97,6 +97,12 @@ const words = [
     camelCase: "XMLHttpRequest",
     description: descriptions.xmlhttprequest,
   },
+  {
+    id: 17,
+    normalized: "checkbox",
+    camelCase: "checkbox",
+    description: descriptions.checkbox,
+  },
 ];
 
 export default words;
